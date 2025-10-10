@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: guestbook-frontend
+  labels:
+    app: guestbook
+    tier: frontend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: guestbook
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        app: guestbook
+        tier: frontend
+    spec:
+      containers:
+      - name: guestbook-frontend
+        # ⚠️ IMAGEN INICIAL: El pipeline la actualizará con el tag :SHA
+        image: tu-usuario-docker/guestbook-frontend:latest 
+        ports:
+        - containerPort: 5000 
+        env:
+        - name: REDIS_MASTER_SERVICE_HOST
+          value: redis-master # Nombre del servicio de Redis en K8s
+        - name: REDIS_MASTER_SERVICE_PORT
+          value: "6379"
