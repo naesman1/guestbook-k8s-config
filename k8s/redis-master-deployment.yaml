@@ -26,3 +26,14 @@ spec:
         command: ["redis-server", "--appendonly", "yes"]
         ports:
         - containerPort: 6379
+        resources:
+          requests:
+            # Pide 250 milicores (aproximadamente un cuarto de un núcleo)
+            cpu: "250m"
+            # Pide 256 MiB de memoria RAM
+            memory: "256Mi"
+          limits:
+            # Límite máximo de 500 milicores
+            cpu: "500m"
+            # Límite máximo de 512 MiB de memoria
+            memory: "512Mi"
