@@ -20,7 +20,7 @@ spec:
       containers:
       - name: guestbook-frontend
         # ⚠️ IMAGEN INICIAL: El pipeline la actualizará con el tag :SHA
-        image: tu-usuario-docker/guestbook-frontend:latest 
+        image: tu-usuario-docker/guestbook-frontend:LATEST_TAG 
         ports:
         - containerPort: 5000 
         env:
