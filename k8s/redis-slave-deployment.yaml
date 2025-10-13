@@ -19,10 +19,10 @@ spec:
         app: redis
         role: slave
         tier: backend
-    spec:
-      containers:
-      - name: slave
-        image: redis:7.0-alpine
-        command: ["redis-server", "--slaveof", "redis-master", "6379"]
-        ports:
+spec:
+  containers:
+    - name: slave
+      image: redis:latest
+      command: ["redis-server", "--slaveof", "redis-master", "6379"]
+      ports:
         - containerPort: 6379
