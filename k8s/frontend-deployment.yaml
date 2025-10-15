@@ -20,9 +20,16 @@ spec:
       containers:
       - name: guestbook-frontend
         # ⚠️ IMAGEN INICIAL: El pipeline la actualizará con el tag :SHA
-        image: mikenarbikes/guestbook-frontend:a23d10c13e583cf5fd86b389f2f77b03f8473a49 
+        image: mikenarbikes/guestbook-frontend:latest
         ports:
         - containerPort: 5000 
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+          limits:
+            cpu: "250m"
+            memory: "256Mi"
         env:
         - name: REDIS_MASTER_SERVICE_HOST
           value: redis-master # Nombre del servicio de Redis en K8s
