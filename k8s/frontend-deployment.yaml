@@ -20,7 +20,7 @@ spec:
       containers:
       - name: guestbook-frontend
         # ⚠️ IMAGEN INICIAL: El pipeline la actualizará con el tag :SHA
-        image: mikenarbikes/guestbook-frontend:512e7b94ae0eea0a1b068ce5d608a82fca4c897d
+        image: mikenarbikes/guestbook-frontend:4bc1d4407c04e1fd48e4339fb67f22903dff97d6
         ports:
         - containerPort: 5000 
         resources:
